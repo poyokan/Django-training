@@ -3,8 +3,8 @@ services:
 
   web:
     build: .
-    # container_name: "django-train"
-    command: python manage.py runserver 0.0.0.0:8000
+    container_name: "web"
+    command: python3 manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
     volumes:
@@ -14,7 +14,7 @@ services:
     
   db:
     image: mysql:5.7
-    # container_name: "sql-train"
+    container_name: "db"
     environment:
       MYSQL_DATABASE: "db"
       MYSQL_USER: "user"

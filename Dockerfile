@@ -1,5 +1,5 @@
 #/DockerHubからpythonのイメージ元をダウンロード
-FROM python:3.9.5-alpine
+FROM python:3.8
 
 # .pycを生成しない
 # 標準出力・標準エラーのストリームバッファリングをしない？
@@ -7,11 +7,8 @@ FROM python:3.9.5-alpine
 ENV PYTHONDONTWRITEBYTECODE = 1 \
     PYTHONUNBUFFERED=1 \
     PYTHONUTF8=1 \ 
-
-# RUN apt-get update
+RUN apt-get update
 # RUN apt-get install
-
-
 RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code
