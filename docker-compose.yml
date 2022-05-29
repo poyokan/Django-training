@@ -7,8 +7,12 @@ services:
     command: python3 manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
+    # working_dir: /code
     volumes:
-      - .:/code
+      - ./code:/code
+      - ./requirements.txt:/code/requirements.txt
+    # environment: 
+    #   PYTHONUSERBASE: /pip-lib
     depends_on:
       - db
     
